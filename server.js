@@ -3,6 +3,8 @@
 var http = require('http');
 var math = require('./math');
 var gravatar = require('./gravatar');
+var counter = require('./counter');
+
 var port = 3000;
 
 var server = http.createServer(function(request, response){
@@ -42,7 +44,9 @@ var server = http.createServer(function(request, response){
       response.end();
       break;
     case 'sentence':
-      response.write(``);
+      let string = params[2];
+      // counter.superCounter(string);
+      response.write(`${JSON.stringify(counter.superCounter(string))}`);
       response.end(); 
       break;
     default:
