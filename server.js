@@ -8,6 +8,7 @@ var server = http.createServer(function(request, response){
   response.setHeader('Access-Control-Allow-Origin', '*');
   
   var params = request.url.split('/');
+  console.log(params);
   
   var route = params[1];
   var route2 = params[2];
@@ -21,7 +22,23 @@ var server = http.createServer(function(request, response){
           response.write(`${math.double(params[3])}\n`);
           response.end(); 
           break;
-        
+        case 'square':
+          console.log(math.square(params[3]));
+          response.write(`${math.square(params[3])}\n`);
+          response.end(); 
+          break; 
+        case 'cube':
+          console.log(math.cube(params[3]));
+          response.write(`${math.cube(params[3])}\n`);
+          response.end(); 
+          break;
+        case 'sum':
+          let nums = (params.slice(3));
+          console.log(nums);
+          console.log(math.sum(nums));
+          response.write(`${math.sum(nums)}\n`);
+          response.end(); 
+          break;
       }
       // response.write(`math\n`);
       response.end(); 
