@@ -40,13 +40,12 @@ var server = http.createServer(function(request, response){
       break;
     case 'gravatar':
       let hashed = gravatar.hashify(params[2]);
-      response.write(`https://s.gravatar.com/avatar/${hashed}?s=80`);
+      response.write(`https://s.gravatar.com/avatar/${hashed}?s=80\n`);
       response.end();
       break;
     case 'sentence':
       let string = params[2];
-      // counter.superCounter(string);
-      response.write(`${JSON.stringify(counter.superCounter(string))}`);
+      response.write(`${JSON.stringify(counter.superCounter(string))}\n`);
       response.end(); 
       break;
     default:

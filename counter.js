@@ -2,7 +2,6 @@
 
 exports.superCounter = string => {
   let newString = decodeURIComponent(string);
-  console.log(newString);
   let words = newString.split(" ").length;
   let characters = newString.split("").length;
   let spaces = newString.match(/ /g).length;
@@ -10,7 +9,5 @@ exports.superCounter = string => {
 
   var obj = {words: words, characters: characters, spaces: spaces, avgLength: avgLength};
 
-  return JSON.stringify(obj); 
+  return obj; 
 }
-
-// exports.superCounter; 
